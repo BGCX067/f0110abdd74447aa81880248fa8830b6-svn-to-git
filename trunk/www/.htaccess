@@ -1,0 +1,17 @@
+AddDefaultCharset utf-8
+RewriteEngine on
+RewriteBase /
+#RewriteLogLevel 3
+#RewriteLog logs/rewrite_log
+
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+
+#RewriteRule ^(xxx|yyy|zzz)/([0-9]+)(.*)$ /$1/index/$1Id/$2$3 [QSA,L]
+RewriteRule !\.(txt|html|htm|xml|js|ico|gif|jpg|png|css)$ index.php [L]
+#RewriteRule .* index.php
+
+Options -Indexes
+php_flag magic_quotes_gpc off
+php_flag register_globals off
+php_flag short_open_tag on
